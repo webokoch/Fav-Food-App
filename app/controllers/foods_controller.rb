@@ -19,7 +19,6 @@ class FoodsController < ApplicationController
     else
       render :new
     end
-
   end
 
   private
@@ -28,6 +27,6 @@ class FoodsController < ApplicationController
   end
 
   def food_params
-    params.require(:food).permit(:name, :cuisine, :description,)
+    params.require(:food).permit(:name, :cuisine, :description)
   end
 end

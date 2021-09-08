@@ -2,7 +2,9 @@ require 'test_helper'
 
 class FoodTest < ActiveSupport::TestCase
   def setup
-    @food = Food.new(name: "Sushi", cuisine: "japanese", description: "high class sushi")
+    @food = Food.new( name: "Sushi",
+                      cuisine: "Japanese",
+                      description: "Htigh class sushi" )
   end
 
   test "should be valid" do
@@ -31,7 +33,7 @@ class FoodTest < ActiveSupport::TestCase
     assert_not @food.valid?
   end
 
-  test "description must no be longer then 500 characters" do
+  test "description must not be longer then 500 characters" do
     @food.description = "a" * 501
     assert_not @food.valid?
   end
