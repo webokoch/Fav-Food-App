@@ -1,5 +1,5 @@
 class FoodsController < ApplicationController
-  before_action :set_food, only: [:show]
+  before_action :set_food, only: [:show, :edit, :update]
 
   def index
     @foods = Food.all
@@ -21,7 +21,19 @@ class FoodsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @food.update(food_params)
+      redirect_to food_path(@food)
+    else
+      render :edit
+    end
+  end
+
   private
+
   def set_food
     @food = Food.find(params[:id])
   end

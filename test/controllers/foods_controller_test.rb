@@ -20,15 +20,18 @@ class FoodsControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
     get "/foods/new"
     assert_response :success
-    assert_select "h2", "Add your Fav Food"
+    assert_select "h1", "Add your Fav Food"
   end
 
-  test "should create fav food" do
+  test "should create and update fav food" do
     assert_difference("Food.count") do
       post foods_url, params: { food: { name: "Pommes",
                                         cuisine: "International",
                                         description: "Potatoes at it's best"} }
     end
+    assert_redirected_to food_path(Food.last)
+    patch food_url(Food.last), params: { food: { description: "Updated"} }
+    assert_equal Food.last.description, "Updated"
     assert_redirected_to food_path(Food.last)
   end
 end
