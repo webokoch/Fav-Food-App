@@ -29,6 +29,7 @@ class FoodsControllerTest < ActionDispatch::IntegrationTest
                                         cuisine: "International",
                                         description: "Potatoes at it's best"} }
     end
+    assert_equal Food.last.name, "Pommes"
     assert_redirected_to food_path(Food.last)
     patch food_url(Food.last), params: { food: { description: "Updated"} }
     assert_equal Food.last.description, "Updated"
