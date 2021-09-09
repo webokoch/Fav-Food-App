@@ -1,5 +1,9 @@
 <h1>All the Fav Foods</h1>
 
-<% @foods.each do |food| %>
-  <h3> <%= food.name %> </h3>
-<% end %>
+<div class="row">
+  <% @foods.each do |food| %>
+  <div class="col-12 col-md-4 col-lg-3">
+    <h3> <%= food.name %> </h3>
+  </div>
+  <% end %>
+</div>
