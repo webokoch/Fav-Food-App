@@ -23,7 +23,7 @@ class FoodsControllerTest < ActionDispatch::IntegrationTest
     assert_select "h1", "Add your Fav Food"
   end
 
-  test "should create and update fav food" do
+  test "should create, update and destroy Fav Food" do
     assert_difference("Food.count") do
       post foods_url, params: { food: { name: "Pommes",
                                         cuisine: "International",
@@ -33,5 +33,9 @@ class FoodsControllerTest < ActionDispatch::IntegrationTest
     patch food_url(Food.last), params: { food: { description: "Updated"} }
     assert_equal Food.last.description, "Updated"
     assert_redirected_to food_path(Food.last)
+    food_count = Food.count
+    delete food_url(Food.last)
+    assert_equal (food_count -1), Food.count
+    assert_redirected_to foods_path
   end
 end

@@ -1,5 +1,5 @@
 class FoodsController < ApplicationController
-  before_action :set_food, only: [:show, :edit, :update]
+  before_action :set_food, only: [:show, :edit, :update, :destroy]
 
   def index
     @foods = Food.all
@@ -30,6 +30,11 @@ class FoodsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @food.destroy
+    redirect_to foods_path
   end
 
   private
