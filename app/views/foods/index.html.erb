@@ -2,8 +2,12 @@
 
 <div class="row">
   <% @foods.each do |food| %>
-  <div class="col-12 col-md-4 col-lg-3">
-    <h3> <%= food.name %> </h3>
-  </div>
+    <div class="col-12 col-md-4 col-lg-3">
+
+      <div class="food-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path food.photo.key, height: 300, crop: :fill %>')">
+        <%= link_to food.name, food_path(food)%>
+      </div>
+
+    </div>
   <% end %>
 </div>

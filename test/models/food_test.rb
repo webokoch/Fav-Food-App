@@ -4,7 +4,7 @@ class FoodTest < ActiveSupport::TestCase
   def setup
     @food = Food.new( name: "Sushi",
                       cuisine: "Japanese",
-                      description: "Htigh class sushi" )
+                      description: "High class sushi" )
   end
 
   test "should be valid" do

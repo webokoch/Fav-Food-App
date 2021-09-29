@@ -10,7 +10,7 @@ class FoodsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    assert_routing '/foods', controller: "foods", action: "index"
+    assert_routing '/', controller: "foods", action: "index"
   end
 
   test "should get show" do
@@ -37,6 +37,6 @@ class FoodsControllerTest < ActionDispatch::IntegrationTest
     food_count = Food.count
     delete food_url(Food.last)
     assert_equal (food_count -1), Food.count
-    assert_redirected_to foods_path
+    assert_redirected_to root_path
   end
 end

@@ -34,7 +34,7 @@ class FoodsController < ApplicationController
 
   def destroy
     @food.destroy
-    redirect_to foods_path
+    redirect_to root_path
   end
 
   private
@@ -44,6 +44,6 @@ class FoodsController < ApplicationController
   end
 
   def food_params
-    params.require(:food).permit(:name, :cuisine, :description)
+    params.require(:food).permit(:name, :cuisine, :description, :photo)
   end
 end
