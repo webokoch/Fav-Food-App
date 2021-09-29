@@ -1,4 +1,14 @@
 <h2> <%= @food.name %> </h2>
+<h2>
+  <% if @food.average_rating.to_i > 0 %>
+    <% @food.average_rating.to_i.times do %>
+       ⭐️
+      <% end %>
+    <%= @food.average_rating %>
+  <% else %>
+     No Rating yet
+  <% end %>
+</h2>
 <h3> <%= @food.cuisine %> </h3>
 <p> <%= @food.description %> </p>
 <p>
@@ -19,3 +29,18 @@
 <p>
   <%= link_to "All Fav Foods", root_path, class: 'btn btn-primary mt-2' %>
 </p>
+<div class="mt-5">
+  <p>
+    <% @food.reviews.each do |review| %>
+      <% review.rating.to_i.times do %>
+        ⭐️
+      <% end %>
+  <p>
+    <%= review.content %>
+  </p>
+  <hr>
+    <% end %>
+  </p>
+</div>
+
+
