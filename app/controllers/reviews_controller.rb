@@ -2,13 +2,11 @@ class ReviewsController < ApplicationController
   before_action :set_food
 
   def new
-    @food = Food.find(params[:food_id])
     @review = Review.new
   end
 
   def create
     @review = Review.new(review_params)
-    @food = Food.find(params[:food_id])
     @review.food = @food
     if @review.save
       redirect_to food_path(@food)

@@ -6,7 +6,7 @@ class Food < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   def average_rating
-    if reviews.size.positive?
+    if reviews.exists?
       reviews.average(:rating).round(2)
     else
       'undefined'

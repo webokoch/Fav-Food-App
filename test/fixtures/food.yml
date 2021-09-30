@@ -1,0 +1,5 @@
+food_001:
+  id: 1
+  name: Pizza
+  cuisine: Italian
+  description: Always great!
