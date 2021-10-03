@@ -12,22 +12,23 @@
 <h3> <%= @food.cuisine %> </h3>
 <p> <%= @food.description %> </p>
 <p>
-  <%= link_to(edit_food_path,
-    class: 'btn btn-success text-decoration-none my-2') do %>
-      <spam>Update <%= @food.name %></spam>
-    <% end %>
-  <%= link_to food_path(@food), method: :delete,
-    class: 'btn btn-success text-decoration-none m-2',
-    data: { confirm: "Do you really want to delete your Fav Food?" } do %>
-      <spam>Delete <%= @food.name %></spam>
+  <% if policy(@food).edit? %>
+    <%= link_to(edit_food_path,
+      class: 'btn btn-success text-decoration-none my-2') do %>
+        <spam>Update <%= @food.name %></spam>
+      <% end %>
+  <% end %>
+  <% if policy(@food).destroy? %>
+    <%= link_to food_path(@food), method: :delete,
+      class: 'btn btn-success text-decoration-none m-2',
+      data: { confirm: "Do you really want to delete your Fav Food?" } do %>
+        <spam>Delete <%= @food.name %></spam>
+      <% end %>
     <% end %>
 </p>
 <p>
   <%= link_to "Review this Fav Food",  new_food_review_path(@food),
     class: 'btn btn-success text-decoration-none' %>
-</p>
-<p>
-  <%= link_to "All Fav Foods", root_path, class: 'btn btn-primary mt-2' %>
 </p>
 <div class="mt-5">
   <p>
@@ -35,10 +36,10 @@
       <% review.rating.to_i.times do %>
         ⭐️
       <% end %>
-  <p>
-    <%= review.content %>
-  </p>
-  <hr>
+      <p>
+        <%= review.content %>
+      </p>
+      <hr>
     <% end %>
   </p>
 </div>

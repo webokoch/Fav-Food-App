@@ -1,0 +1,13 @@
+<h1>All My Reviews</h1>
+
+<div>
+  <% @reviews.each do |review| %>
+    <h4> <%= review.food.name %> </h4>
+    <p> <% review.rating.to_i.times do %>
+        ⭐️
+      <% end %>
+    </p>
+    <p> <%= review.content %> </p>
+    <hr>
+  <% end %>
+</div>

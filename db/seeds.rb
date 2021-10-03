@@ -12,13 +12,14 @@ puts 'generating Fav Foods'
   user1 = User.new(email: "user1@example.com", password: "password")
   user1.save
 
-  user1 = User.new(email: "user2@example.com", password: "123456")
-  user1.save
+  user2 = User.new(email: "user2@example.com", password: "123456")
+  user2.save
 
   f1 =Food.new(
     name: "Sushi",
     cuisine: "Japanese",
-    description: "Lot's of Rice and Fish"
+    description: "Lot's of Rice and Fish",
+    user: user1
     )
   file1 = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1631215176/food-placeholder2_h5y8b8.jpg')
   f1.photo.attach(io: file1, filename: 'food1.jpg', content_type: 'image/jpg')
@@ -27,7 +28,8 @@ puts 'generating Fav Foods'
   f2 =Food.new(
     name: "Burger",
     cuisine: "American",
-    description: "Meat in a Bun"
+    description: "Meat in a Bun",
+    user: user1
     )
   file2 = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1631215176/food-placeholder6_s6gnbu.jpg')
   f2.photo.attach(io: file2, filename: 'food2.jpg', content_type: 'image/jpg')
@@ -36,7 +38,8 @@ puts 'generating Fav Foods'
   f3 =Food.new(
     name: "Pizza",
     cuisine: "Italian",
-    description: "Tastes like Holiday"
+    description: "Tastes like Holiday",
+    user: user2
     )
   file3 = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1631215176/food-placeholder1_yfpfzm.jpg')
   f3.photo.attach(io: file3, filename: 'food3.jpg', content_type: 'image/jpg')
@@ -45,7 +48,8 @@ puts 'generating Fav Foods'
   f4 =Food.new(
     name: "Spaghetti",
     cuisine: "Italian",
-    description: "Noodels th Italian Way"
+    description: "Noodels th Italian Way",
+    user: user2
     )
   file4 = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1631215176/food-placeholder3_nzefke.jpg')
   f4.photo.attach(io: file4, filename: 'food4.jpg', content_type: 'image/jpg')
