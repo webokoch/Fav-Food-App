@@ -3,3 +3,4 @@ food_001:
   name: Pizza
   cuisine: Italian
   description: Always great!
+  user_id: 1

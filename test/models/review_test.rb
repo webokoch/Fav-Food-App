@@ -5,6 +5,7 @@ class ReviewTest < ActiveSupport::TestCase
   @review = Review.new(content: "This is a test review",
                        rating: 5,
                        food_id: 1)
+  @review.user_id = 1
   end
 
   test "should be valid" do

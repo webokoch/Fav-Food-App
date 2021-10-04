@@ -5,6 +5,7 @@ class FoodTest < ActiveSupport::TestCase
     @food = Food.new( name: "Sushi",
                       cuisine: "Japanese",
                       description: "High class sushi" )
+    @food.user_id = 1
   end
 
   test "should be valid" do
