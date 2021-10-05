@@ -5,11 +5,16 @@ class FoodTest < ActiveSupport::TestCase
     @food = Food.new( name: "Sushi",
                       cuisine: "Japanese",
                       description: "High class sushi" )
-    @food.user_id = 1
+     @food.user_id = 1
   end
 
   test "should be valid" do
     assert @food.valid?
+  end
+
+  test "user should be present" do
+    @food.user_id = nil
+    assert_not @food.valid?
   end
 
   test "name should be present" do

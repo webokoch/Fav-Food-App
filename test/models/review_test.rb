@@ -1,15 +1,21 @@
 require 'test_helper'
 
 class ReviewTest < ActiveSupport::TestCase
- def setup
-  @review = Review.new(content: "This is a test review",
-                       rating: 5,
-                       food_id: 1)
-  @review.user_id = 1
+  def setup
+    @review = Review.new(content: "This is a test review",
+                         rating: 5,
+                         food_id: 1)
+    @review.user_id = 1
   end
 
   test "should be valid" do
+    @review.user_id = 1
     assert @review.valid?
+  end
+
+   test "user should be present" do
+    @review.user_id = nil
+    assert_not @review.valid?
   end
 
   test "content should be present" do

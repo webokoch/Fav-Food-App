@@ -10,10 +10,9 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    assert_routing '/foods/1/reviews/new',
-      controller: "reviews",
-      action: "new",
-      food_id: "1"
+    get "/foods/1/reviews/new"
+    assert_response :success
+    assert_select "h1", "Add your Review"
   end
 
   test "should create a new review" do
