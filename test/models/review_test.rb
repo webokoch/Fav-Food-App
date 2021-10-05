@@ -9,7 +9,6 @@ class ReviewTest < ActiveSupport::TestCase
   end
 
   test "should be valid" do
-    @review.user_id = 1
     assert @review.valid?
   end
 
